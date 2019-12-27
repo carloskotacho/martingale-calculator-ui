@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  font-family: "Sarabun", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1b1c1e;
+  padding: 25px 50px;
+  margin: 0;
+  min-height: 100%;
+  letter-spacing: 0.2px;
+  z-index: 1;
+  background-color: #3796BC;
+  background-image: -webkit-gradient(linear, left top, rigth top, from(#4b6cb7), to(#182848));
+  background-image: -webkit-linear-gradient(left, #4b6cb7, #182848);
+}
