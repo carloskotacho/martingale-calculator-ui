@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ClipboardService } from 'ngx-clipboard';
 
 class ValuesForm {
   investment: string;
@@ -10,18 +12,21 @@ class ValuesForm {
 @Component({
   selector: 'app-martingale-calculator',
   templateUrl: './martingale-calculator.component.html',
-  styleUrls: ['./martingale-calculator.component.css']
+  styleUrls: ['./martingale-calculator.component.css'],
+  providers: [MessageService]
 })
 export class MartingaleCalculatorComponent implements OnInit {
 
   valuesForm;
   martingaleList;
+  valueCopied;
 
-  constructor() { }
+  constructor(private messageService: MessageService, private clipboardService: ClipboardService) {}
 
   ngOnInit() {
     this.valuesForm = new ValuesForm();
     this.martingaleList = [];
+    this.valueCopied = '';
   }
 
   calculator(form: NgForm) {
@@ -29,6 +34,15 @@ export class MartingaleCalculatorComponent implements OnInit {
     this.valuesForm.payout = form.value.payout;
     this.valuesForm.martingale = form.value.martingale;
 
-    // Preencher vetor
+    // TODO: Preencher vetor
+  }
+
+  copiedSuccess() {
+    this.messageService.add({severity: 'success', summary: 'Copiado!', detail: 'R$ ' + this.valueCopied });
+  }
+
+  copy(value: string) {
+    this.valueCopied = value;
+    this.clipboardService.copyFromContent(value);
   }
 }

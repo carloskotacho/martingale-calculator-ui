@@ -8,6 +8,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { ToastModule } from 'primeng/toast';
+
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   imports: [
@@ -17,7 +20,9 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     InputTextModule,
     ButtonModule,
     CardModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    ToastModule,
+    ClipboardModule
   ],
   declarations: [
     MartingaleCalculatorComponent
