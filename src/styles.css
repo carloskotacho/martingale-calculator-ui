@@ -8,8 +8,8 @@ body{
   letter-spacing: 0.2px;
   z-index: 1;
   background-color: #000046;
-  background-image: -webkit-gradient(linear, left top, rigth top, from(#1e3c72), to(#2a5298));
-  background-image: -webkit-linear-gradient(left, #1e3c72, #2a5298);
+  background-image: -webkit-gradient(linear, left top, rigth top, from(#00F260), to(#0575E6));
+  background-image: -webkit-linear-gradient(left, #00F260, #0575E6);
   padding: 0;
 }
 
@@ -67,4 +67,36 @@ body .ui-money-box .ui-button{
 body .ui-money-box .ui-button:enabled:hover{
   background-color: #2a5298;
   border-color: #2a5298;
+}
+
+body .ui-panel .ui-panel-titlebar{
+  border: 1px solid #121213;
+  background-color: #1b3548;
+  color: #9fadb7;
+}
+
+body .ui-panel .ui-panel-content{
+  background-color: #1c2937;
+  border: 1px solid #121213;
+  border-top: 0 none;
+  color: #9fadb7;
+}
+
+body .ui-card{
+  background-color: #141e27;
+  border-radius: 8px;
+}
+
+body .ui-inputtext{
+  background-color: #141e27;
+  color: #d8d8d8;
+  font-size: 14px;
+  border: 1px solid #121213;
+}
+
+body .ui-spinner .ui-spinner-button.ui-button{
+  z-index: auto;
+  background: transparent;
+  color: #acacac;
+  border: none;
 }

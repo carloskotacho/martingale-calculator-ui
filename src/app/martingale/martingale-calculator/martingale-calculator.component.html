@@ -1,34 +1,33 @@
-<div class="container">
-  <div class="ui-g ui-fluid">
-    <p-panel header="Calculadora">
-      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{marginTop: '80px'}" position="bottom-center"></p-toast>
 
-      <form #valuesForm="ngForm" (ngSubmit)="calculator(valuesForm)">
-        <label>Investimento (R$)</label>
-        <input type="number" pInputText placeholder="0,00" name="investment" [ngModel]="valuesForm.investment" required />
+<form #valuesForm="ngForm" autocomplete="off" (ngSubmit)="calculator(valuesForm)">
+  <label>Investimento (R$)</label>
+  <input type="text" pInputText placeholder="0,00" name="investment" [ngModel]="valuesForm.investment" currencyMask
+  [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false, align: 'left' }" required />
 
-        <label>Payout</label>
-        <input type="number" pInputText placeholder="%" name="payout" [ngModel]="valuesForm.payout" required />
+  <label>Payout</label>
+  <p-spinner name="payout" [ngModel]="valuesForm.payout" [min]="0" [max]="150" placeholder="%" required></p-spinner>
+  <!--<input type="number" pInputText placeholder="%" name="payout" [ngModel]="valuesForm.payout" [max]="3" required />-->
 
-        <label>Martingale (Máx. 10)</label>
-        <input type="number" pInputText name="martingale" [ngModel]="valuesForm.martingale" required />
+  <label>Martingale (Máx. 10)</label>
+  <p-spinner name="martingale" [ngModel]="valuesForm.martingale" [min]="0" [max]="10" required></p-spinner>
+  <!--<input type="number" pInputText name="martingale" [ngModel]="valuesForm.martingale" required />-->
 
-        <button pButton type="submit" label="Calcular" [disabled]="!valuesForm.valid"></button>
-      </form>
+  <button pButton type="submit" label="Calcular" [disabled]="valuesForm.invalid"></button>
+</form>
 
-      <p-card header="Sequência de Transações">
-        <p-scrollPanel [style]="{width: '100%', height: '90px'}">
-          <!-- Aguardando você efetuar o cálculo... -->
+<p-card header="Sequência de Transações">
+  <p-scrollPanel [style]="{width: '100%', height: '90px'}">
+    <div class="message-loading" *ngIf="martingaleList.length == 0">
+      Aguardando você efetuar o cálculo...
+    </div>
 
-          <div style="padding:1em;line-height:1.5">
-            <div *ngFor="let gale of martingaleList">
-              <div class="ui-money-box">
-                <button class="btn" pButton type="button" (click)="copy(gale.value)" (click)="copiedSuccess()" label="R$ {{ gale.value }}"></button>
-              </div>
-            </div>
-          </div>
-        </p-scrollPanel>
-      </p-card>
-    </p-panel>
-  </div>
-</div>
+    <div style="padding:1em;line-height:1.5">
+      <div *ngFor="let gale of martingaleList">
+        <div class="ui-money-box">
+          <button class="btn" pButton type="button" (click)="copy(gale.value)" (click)="copiedSuccess()" label="R$ {{ gale.value }}"></button>
+        </div>
+      </div>
+    </div>
+  </p-scrollPanel>
+</p-card>
