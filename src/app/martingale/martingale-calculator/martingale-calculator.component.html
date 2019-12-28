@@ -1,20 +1,39 @@
 <div class="container">
   <div class="ui-g ui-fluid">
     <p-panel header="Calculadora">
-      <label>Investimento (R$)</label>
-      <input type="text" pInputText placeholder="ex: 10" />
+      <form #valuesForm="ngForm" (ngSubmit)="calculator(valuesForm)">
+        <label>Investimento (R$)</label>
+        <input type="text" pInputText placeholder="ex: 10" name="investment" required />
 
-      <label>Payout (%)</label>
-      <input type="text" pInputText placeholder="ex: 86%" />
+        <label>Payout (%)</label>
+        <input type="text" pInputText placeholder="ex: 86%" name="payout" required />
 
-      <label>Martingale</label>
-      <input type="text" pInputText placeholder="ex: 2"/>
+        <label>Martingale</label>
+        <input type="text" pInputText placeholder="ex: 2" name="martingale" required />
 
-      <button pButton type="button" label="Calcular" ></button>
+        <button pButton type="submit" label="Calcular" ></button>
+      </form>
 
       <p-card header="Sequência de Transações">
         <p-scrollPanel [style]="{width: '100%', height: '90px'}">
-          Aguardando você efetuar o cálculo...
+          <!-- Aguardando você efetuar o cálculo... -->
+
+          <div style="padding:1em;line-height:1.5">
+
+              <div class="ui-money-box">
+                <button class="btn" pButton type="button" data-clipboard-text="100" label="R$ 100"></button>
+              </div>
+              <div class="ui-money-box">
+                <button class="btn" pButton type="button" data-clipboard-text="216" label="R$ 216"></button>
+              </div>
+              <div class="ui-money-box">
+                <button class="btn" pButton type="button" data-clipboard-text="467" label="R$ 467"></button>
+              </div>
+              <div class="ui-money-box">
+                <button class="btn" pButton type="button" data-clipboard-text="1010" label="R$ 1010"></button>
+              </div>
+
+            </div>
         </p-scrollPanel>
       </p-card>
     </p-panel>

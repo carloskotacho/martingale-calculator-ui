@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MartingaleCalculatorComponent } from './martingale-calculator/martingale-calculator.component';
@@ -11,6 +12,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     PanelModule,
     InputTextModule,
     ButtonModule,

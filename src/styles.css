@@ -44,10 +44,27 @@ body .ui-card-title{
 
 body .ui-scrollpanel-content{
   font-size: 13px;
-  color: #C0D1CF;
+  /*color: #C0D1CF;*/
 }
 
 body .ui-button{
   background-color: #2a5298;
   border: 1px solid #2a5298;
+}
+
+body .ui-money-box .ui-button{
+  width: 100px;
+  text-align: center;
+  margin: .2em;
+  border-radius: 3px;
+  position: relative;
+  float: left;
+  background-color: #6ebc3b;
+  border-color: #6ebc3b;
+  color: #ffffff;
+}
+
+body .ui-money-box .ui-button:enabled:hover{
+  background-color: #2a5298;
+  border-color: #2a5298;
 }
