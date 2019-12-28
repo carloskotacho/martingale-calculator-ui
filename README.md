@@ -29,3 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Libs
 
 - [ngx-clipboard](https://www.npmjs.com/package/ngx-clipboard)
+- [ng2-currency-mask](https://www.npmjs.com/package/ng2-currency-mask)

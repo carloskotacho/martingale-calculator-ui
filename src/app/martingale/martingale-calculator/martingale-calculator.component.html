@@ -5,15 +5,15 @@
 
       <form #valuesForm="ngForm" (ngSubmit)="calculator(valuesForm)">
         <label>Investimento (R$)</label>
-        <input type="text" pInputText placeholder="ex: 10" name="investment" required />
+        <input type="number" pInputText placeholder="0,00" name="investment" [ngModel]="valuesForm.investment" required />
 
-        <label>Payout (%)</label>
-        <input type="text" pInputText placeholder="ex: 86" name="payout" required />
+        <label>Payout</label>
+        <input type="number" pInputText placeholder="%" name="payout" [ngModel]="valuesForm.payout" required />
 
-        <label>Martingale</label>
-        <input type="text" pInputText placeholder="ex: 2" name="martingale" required />
+        <label>Martingale (Máx. 10)</label>
+        <input type="number" pInputText name="martingale" [ngModel]="valuesForm.martingale" required />
 
-        <button pButton type="submit" label="Calcular" ></button>
+        <button pButton type="submit" label="Calcular" [disabled]="!valuesForm.valid"></button>
       </form>
 
       <p-card header="Sequência de Transações">
@@ -21,21 +21,12 @@
           <!-- Aguardando você efetuar o cálculo... -->
 
           <div style="padding:1em;line-height:1.5">
-
+            <div *ngFor="let gale of martingaleList">
               <div class="ui-money-box">
-                <button class="btn" pButton type="button" (click)="copy('100')" (click)="copiedSuccess()" label="R$ 100"></button>
+                <button class="btn" pButton type="button" (click)="copy(gale.value)" (click)="copiedSuccess()" label="R$ {{ gale.value }}"></button>
               </div>
-              <div class="ui-money-box">
-                <button class="btn" pButton type="button" (click)="copy('216')" (click)="copiedSuccess()" label="R$ 216"></button>
-              </div>
-              <div class="ui-money-box">
-                <button class="btn" pButton type="button" (click)="copy('467')" (click)="copiedSuccess()" label="R$ 467"></button>
-              </div>
-              <div class="ui-money-box">
-                <button class="btn" pButton type="button" (click)="copy('1010')" (click)="copiedSuccess()" label="R$ 1010"></button>
-              </div>
-
             </div>
+          </div>
         </p-scrollPanel>
       </p-card>
     </p-panel>
