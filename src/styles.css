@@ -2,14 +2,14 @@ body{
   font-family: "Sarabun", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #1b1c1e;
+  color: #d8d8d8;
   margin: 0;
   min-height: 100%;
   letter-spacing: 0.2px;
   z-index: 1;
-  background-color: #000046;
-  background-image: -webkit-gradient(linear, left top, rigth top, from(#00F260), to(#0575E6));
-  background-image: -webkit-linear-gradient(left, #00F260, #0575E6);
+  background-color: #141e27;
+  /*background-image: -webkit-gradient(linear, left top, rigth top, from(#41295a), to(#2F0743));
+  background-image: -webkit-linear-gradient(left, #41295a, #2F0743);*/
   padding: 0;
 }
 
@@ -22,10 +22,14 @@ body .container{
   align-items: center
 }
 
+body .ui-corner-all{
+  border-radius: 0;
+}
+
 body .ui-panel{
   width: 450px;
   /*height: 400px;*/
-  background: #fff;
+  background: #141e27;
 }
 
 body .ui-panel-content input{
@@ -48,8 +52,8 @@ body .ui-scrollpanel-content{
 }
 
 body .ui-button{
-  background-color: #2a5298;
-  border: 1px solid #2a5298;
+  background-color: #7E57C2;
+  border: 1px solid #7E57C2;
 }
 
 body .ui-money-box .ui-button{
@@ -64,15 +68,26 @@ body .ui-money-box .ui-button{
   color: #ffffff;
 }
 
-body .ui-money-box .ui-button:enabled:hover{
-  background-color: #2a5298;
-  border-color: #2a5298;
+body .ui-button {
+  background-color: #7044bb;
+  border: 1px solid transparent;
+  font-size: 13px;
+}
+
+body .ui-button:enabled:hover{
+  background-color: #7044bb;
+  border-color: #7044bb;
+  -webkit-box-shadow: 0 0 7px 0 #7E57C2;
+}
+
+body .ui-button:enabled:focus{
+ -webkit-box-shadow: 0 0 7px 0 #7E57C2;
 }
 
 body .ui-panel .ui-panel-titlebar{
   border: 1px solid #121213;
   background-color: #1b3548;
-  color: #9fadb7;
+  color: #B1C1C0;
 }
 
 body .ui-panel .ui-panel-content{
@@ -99,4 +114,13 @@ body .ui-spinner .ui-spinner-button.ui-button{
   background: transparent;
   color: #acacac;
   border: none;
+}
+
+body .ui-inputtext:enabled:hover:not(.ui-state-disabled) {
+  border: 1px solid #7E57C2;
+}
+
+body .ui-inputtext:enabled:focus:not(.ui-state-error){
+  border-color: #7E57C2;
+  -webkit-box-shadow: 0 0 7px 0 #7E57C2;
 }
