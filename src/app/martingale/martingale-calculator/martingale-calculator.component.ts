@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { ClipboardService } from 'ngx-clipboard';
 
 class ValuesForm {
+  factor: string;
   investment: string;
   payout: string;
   martingale: string;
@@ -31,13 +32,14 @@ export class MartingaleCalculatorComponent implements OnInit {
 
   calculator(form: NgForm) {
     this.martingaleList = [];
+    this.valuesForm.factor  = form.value.factor;
     this.valuesForm.investment = form.value.investment;
     this.valuesForm.payout = form.value.payout;
     this.valuesForm.martingale = form.value.martingale;
 
     for (let i = 0; i < this.valuesForm.martingale; i++) {
       this.martingaleList.push({ value: Math.round(this.valuesForm.investment) });
-      this.valuesForm.investment *= 2.3;
+      this.valuesForm.investment *= this.valuesForm.factor;
     }
   }
 

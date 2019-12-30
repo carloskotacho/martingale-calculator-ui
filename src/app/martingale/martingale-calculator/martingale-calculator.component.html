@@ -1,17 +1,18 @@
 <p-toast [style]="{marginTop: '80px'}" position="bottom-center"></p-toast>
 
 <form #valuesForm="ngForm" autocomplete="off" (ngSubmit)="calculator(valuesForm)">
+  <label>Fator Multiplicativo</label>
+  <input type="text" pInputText placeholder="2,3" name="factor" [ngModel]="valuesForm.factor" required />
+
   <label>Investimento (R$)</label>
   <input type="text" pInputText placeholder="0,00" name="investment" [ngModel]="valuesForm.investment" currencyMask
   [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false, align: 'left' }" required />
 
   <label>Payout</label>
   <p-spinner name="payout" [ngModel]="valuesForm.payout" [min]="0" [max]="150" placeholder="%" required></p-spinner>
-  <!--<input type="number" pInputText placeholder="%" name="payout" [ngModel]="valuesForm.payout" [max]="3" required />-->
 
   <label>Martingale (Máx. 10)</label>
   <p-spinner name="martingale" [ngModel]="valuesForm.martingale" [min]="0" [max]="10" required></p-spinner>
-  <!--<input type="number" pInputText name="martingale" [ngModel]="valuesForm.martingale" required />-->
 
   <button pButton type="submit" label="Calcular" [disabled]="valuesForm.invalid"></button>
 </form>
